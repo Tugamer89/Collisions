@@ -1,5 +1,3 @@
-// https://editor.p5js.org/codingtrain/sketches/z8n19RFz9
-
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -13,6 +11,7 @@ const float FRAME_INTERVAL = 1.0f / 60.0f;
 const int FPS_WINDOW_SIZE = 1000;
 const int WIDTH = 640;
 const int HEIGHT = 640;
+const int NUM_BALLS = 50;
 
 void saveScreenshot(const sf::Image& screenshot, unsigned long long frameCounter) {
     screenshot.saveToFile("screenshots/frame_" + to_string(frameCounter) + ".png");
@@ -43,7 +42,7 @@ int main(int argc, char* argv[]) {
     Drawer drawer(WIDTH, HEIGHT, "The Tu-Balls");
 
     vector<Particle> particles;
-    for (int i = 0; i < 50; ++i) {
+    for (int i = 0; i < NUM_BALLS; ++i) {
         int x = distribW(gen);
         int y = distribH(gen);
         int mass = distribMass(gen);
