@@ -2,9 +2,8 @@
 
 using namespace std;
 
-Particle::Particle(const sf::Vector2f& coords, unsigned int mass_, unsigned int id_, const sf::Color& clr) {
-    random_device rd;
-    mt19937 gen(rd());
+Particle::Particle(const sf::Vector2f& coords, unsigned int mass_, unsigned int id_, const sf::Color& clr, const unsigned int& seed) {
+    mt19937 gen(seed);
     uniform_real_distribution<> dis(0, 2 * M_PI);
     double angle = dis(gen);
 

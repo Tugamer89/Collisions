@@ -33,7 +33,10 @@ int main(int argc, char* argv[]) {
 
 
     random_device rd;
-    mt19937 gen(rd());
+    unsigned int seed = rd();
+    cout << "Seed: " << seed << endl;
+
+    mt19937 gen(seed);
     uniform_int_distribution<> distribW(0, WIDTH);
     uniform_int_distribution<> distribH(0, HEIGHT);
     uniform_int_distribution<> distribMass(4, 300);
@@ -47,7 +50,7 @@ int main(int argc, char* argv[]) {
         int y = distribH(gen);
         int mass = distribMass(gen);
         sf::Color color = palette[distribColor(gen)];
-        particles.push_back(Particle({x, y}, mass, i, color));
+        particles.push_back(Particle({x, y}, mass, i, color, seed));
     }
 
     unsigned long long frameCounter = 0;

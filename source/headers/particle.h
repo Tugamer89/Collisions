@@ -14,7 +14,7 @@ public:
     unsigned int id;
     sf::Color color;
 
-    Particle(const sf::Vector2f& coords, unsigned int mass, unsigned int id, const sf::Color& clr);
+    Particle(const sf::Vector2f& coords, unsigned int mass, unsigned int id, const sf::Color& clr, const unsigned int& seed);
     void update();
     void collide(Particle* other);
     void edges(unsigned int width, unsigned int height);
